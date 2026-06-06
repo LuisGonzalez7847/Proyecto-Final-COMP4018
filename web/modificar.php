@@ -1,4 +1,5 @@
 <?php
+require 'auth.php';
 require 'config.php';
 
 $mensaje = '';
@@ -113,6 +114,7 @@ $universidades = $conn->query("SELECT id_universidad, nombre FROM Universidad OR
 </head>
 <body>
 
+<!-- Barra de navegacion -->
 <nav class="navbar navbar-expand-lg navbar-nba">
     <div class="container">
         <a class="navbar-brand fw-bold" href="index.php">🏀 NBA Database</a>
@@ -122,8 +124,14 @@ $universidades = $conn->query("SELECT id_universidad, nombre FROM Universidad OR
                 <li class="nav-item"><a class="nav-link" href="queries.php">Consultas</a></li>
                 <li class="nav-item"><a class="nav-link" href="visualizar.php">Visualizar</a></li>
                 <li class="nav-item"><a class="nav-link" href="insertar.php">Insertar</a></li>
-                <li class="nav-item"><a class="nav-link active" href="modificar.php">Modificar</a></li>
+                <li class="nav-item"><a class="nav-link" href="modificar.php">Modificar</a></li>
                 <li class="nav-item"><a class="nav-link" href="graficas.php">Gráficas</a></li>
+                <?php if (isset($_SESSION['usuario'])): ?>
+                    <li class="nav-item"><span class="nav-link">👤 <?= htmlspecialchars($_SESSION['usuario']) ?></span></li>
+                    <li class="nav-item"><a class="nav-link" href="logout.php">Cerrar sesión</a></li>
+                <?php else: ?>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Iniciar sesión</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

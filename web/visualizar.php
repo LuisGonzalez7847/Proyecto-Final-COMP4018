@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'config.php';
 
 // Lista de tablas disponibles para mostrar
@@ -58,6 +59,7 @@ $resultado = $conn->query($sql);
 </head>
 <body>
 
+<!-- Barra de navegacion -->
 <nav class="navbar navbar-expand-lg navbar-nba">
     <div class="container">
         <a class="navbar-brand fw-bold" href="index.php">🏀 NBA Database</a>
@@ -65,10 +67,16 @@ $resultado = $conn->query($sql);
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="queries.php">Consultas</a></li>
-                <li class="nav-item"><a class="nav-link active" href="visualizar.php">Visualizar</a></li>
+                <li class="nav-item"><a class="nav-link" href="visualizar.php">Visualizar</a></li>
                 <li class="nav-item"><a class="nav-link" href="insertar.php">Insertar</a></li>
                 <li class="nav-item"><a class="nav-link" href="modificar.php">Modificar</a></li>
                 <li class="nav-item"><a class="nav-link" href="graficas.php">Gráficas</a></li>
+                <?php if (isset($_SESSION['usuario'])): ?>
+                    <li class="nav-item"><span class="nav-link">👤 <?= htmlspecialchars($_SESSION['usuario']) ?></span></li>
+                    <li class="nav-item"><a class="nav-link" href="logout.php">Cerrar sesión</a></li>
+                <?php else: ?>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Iniciar sesión</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
