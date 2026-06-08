@@ -1,8 +1,7 @@
 -- Queries del proyecto NBA
--- Cumple con requisitos: JOIN de 3+ tablas, GROUP BY/HAVING, subconsulta
 
--- Query 1: JOIN de 4 tablas
--- Top 10 jugadores con mas puntos por juego en una temporada y su equipo
+-- Query 1: JOIN de 5 tablas
+-- Top 10 anotadores historicos con su equipo y pais
 SELECT
     j.nombre AS jugador,
     t.etiqueta AS temporada,
@@ -32,7 +31,7 @@ ORDER BY total_jugadores DESC;
 
 
 -- Query 3: Subconsulta
--- Jugadores que en alguna temporada superaron el promedio general de puntos
+-- Jugadores que superaron el promedio general de puntos
 SELECT DISTINCT
     j.nombre AS jugador,
     MAX(et.pts) AS max_pts
@@ -44,7 +43,7 @@ ORDER BY max_pts DESC
 LIMIT 20;
 
 
--- Query 4: Subconsulta con WITH (CTE) + agregacion
+-- Query 4: CTE con WITH
 -- Top 5 universidades por promedio de puntos de sus jugadores
 WITH puntos_por_jugador AS (
     SELECT
@@ -68,7 +67,7 @@ ORDER BY pts_promedio DESC
 LIMIT 5;
 
 
--- Query 5: JOIN aprovechando la herencia (Drafteado vs NoDrafteado)
+-- Query 5: UNION ALL usando la herencia
 -- Comparar promedio de puntos entre drafteados y no drafteados
 SELECT
     'Drafteado' AS tipo,

@@ -1,6 +1,4 @@
--- Schema de la base de datos NBA
--- 9 tablas: Pais, Universidad, Equipo, Temporada, Jugador,
--- JugadorDrafteado, JugadorNoDrafteado, EstadisticasTemporada, EstadisticasAvanzadas
+-- Schema de la base de datos del proyecto NBA
 
 USE nba_db;
 
@@ -46,7 +44,7 @@ CREATE TABLE Temporada (
     anio_fin      INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Jerarquia Jugador
+-- Jerarquia Jugador (supertipo + 2 subtipos)
 
 CREATE TABLE Jugador (
     id_jugador      INT AUTO_INCREMENT PRIMARY KEY,
@@ -105,6 +103,7 @@ CREATE TABLE EstadisticasAvanzadas (
     FOREIGN KEY (id_jugador, id_temporada)
         REFERENCES EstadisticasTemporada(id_jugador, id_temporada) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Tabla Usuario para autenticacion
 CREATE TABLE Usuario (
     id_usuario   INT AUTO_INCREMENT PRIMARY KEY,
