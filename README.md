@@ -7,7 +7,7 @@ Proyecto final del curso COMP4018 (Bases de Datos). Consiste en el diseño e imp
 
 ## Curso
 - COMP4018 — Bases de Datos
-- Semestre 2025–2026
+- Semestre 2026
 
 ## Fuente del Dataset
 - [NBA Players Data en Kaggle](https://www.kaggle.com/datasets/justinas/nba-players-data)

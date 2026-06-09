@@ -321,7 +321,7 @@ $equipos = $conn->query("SELECT id_equipo, nombre_completo FROM Equipo ORDER BY 
 </div>
 
 <footer class="text-center">
-    <p class="mb-0">Proyecto Final COMP4018 - Luis Gonzalez - 2025-2026</p>
+    <p class="mb-0">Proyecto Final COMP4018 - </p>
 </footer>
 
 <script>

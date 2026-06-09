@@ -192,7 +192,7 @@ $resultado = $conn->query($sql);
 </div>
 
 <footer class="text-center">
-    <p class="mb-0">Proyecto Final COMP4018 - Luis Gonzalez - 2025-2026</p>
+    <p class="mb-0">Proyecto Final COMP4018 - Luis Gonzalez - 2026</p>
 </footer>
 
 <?php $conn->close(); ?>
